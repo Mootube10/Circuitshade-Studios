@@ -1,52 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Circuitshade Studios</title>
   <style>
     body {
+      background-color: #121212;
+      color: #f0f0f0;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #121212;
-      color: #f0f0f0;
     }
     header {
       background-color: #1e1e1e;
-      padding: 20px;
       text-align: center;
+      padding: 30px 20px;
     }
     header h1 {
       margin: 0;
       color: #00ffcc;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+    }
+    .nav-button {
+      padding: 15px 25px;
+      margin: 5px;
+      background-color: #00ccff;
+      color: #121212;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-button:hover {
+      background-color: #0099cc;
+    }
     section {
-      padding: 20px;
-      border-bottom: 1px solid #333;
+      display: none;
+      padding: 30px 20px;
     }
-    .company {
-      margin-bottom: 30px;
-    }
-    .company h2 {
-      color: #00ccff;
-    }
-    a {
-      color: #00ffcc;
-      text-decoration: none;
-    }
-    .products {
-      margin-top: 10px;
+    section.active {
+      display: block;
     }
     .product {
       background-color: #222;
-      padding: 10px;
-      margin: 10px 0;
+      margin: 15px 0;
+      padding: 15px;
       border-radius: 8px;
     }
     .product h3 {
       margin: 0;
       color: #ffd700;
+    }
+    a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -57,40 +75,62 @@
     <p>Empowering creativity through software and innovation</p>
   </header>
 
-  <section>
-    <div class="company">
-      <h2>Bots&Bops</h2>
-      <p>Custom Discord bot development services tailored for communities, content creators, and businesses.</p>
-      <p><strong>Services include:</strong> Moderation tools, music bots, utility integrations, custom APIs</p>
-      <p><a href="https://botsandbops.example.com" target="_blank">Visit Bots&Bops Website</a></p>
-    </div>
+  <nav>
+    <button class="nav-button" onclick="showSection('home')">Home</button>
+    <button class="nav-button" onclick="showSection('bots')">Bots&Bops</button>
+    <button class="nav-button" onclick="showSection('slither')">Slither</button>
+  </nav>
 
-    <div class="company">
-      <h2>Slither</h2>
-      <p>Innovative consumer products designed for lifestyle, tech, and creativity. Quality meets affordability.</p>
-      
-      <div class="products">
-        <div class="product">
-          <h3>SlitherGrip™ Ergonomic Phone Holder</h3>
-          <p>Price: $19.99 USD</p>
-        </div>
-        <div class="product">
-          <h3>SlitherLight™ Rechargeable LED Strip</h3>
-          <p>Price: $24.99 USD</p>
-        </div>
-        <div class="product">
-          <h3>SlitherDesk™ Minimalist Organizer</h3>
-          <p>Price: $39.99 USD</p>
-        </div>
-      </div>
-
-      <p><a href="https://slitherproducts.example.com" target="_blank">Shop Slither Products</a></p>
-    </div>
+  <section id="home" class="active">
+    <h2>Welcome to Circuitshade Studios</h2>
+    <p>We’re a multi-brand creative studio building future-focused products and tools.</p>
+    <p>Explore our companies below!</p>
   </section>
 
-  <footer style="text-align: center; padding: 20px; background-color: #1e1e1e;">
+  <section id="bots">
+    <h2>Bots&Bops</h2>
+    <p>Custom Discord bot development for communities, creators, and businesses.</p>
+    <ul>
+      <li>Music, Moderation & Utility Bots</li>
+      <li>Custom API integrations</li>
+      <li>Premium support & deployment</li>
+    </ul>
+    <p>Visit: <a href="https://botsandbops.example.com" target="_blank">botsandbops.example.com</a></p>
+  </section>
+
+  <section id="slither">
+    <h2>Slither Products</h2>
+    <p>Innovative lifestyle tech with sleek design and reliable performance.</p>
+
+    <div class="product">
+      <h3>SlitherGrip™</h3>
+      <p>Ergonomic Phone Holder — <strong>$19.99</strong></p>
+    </div>
+
+    <div class="product">
+      <h3>SlitherLight™</h3>
+      <p>Rechargeable LED Strip — <strong>$24.99</strong></p>
+    </div>
+
+    <div class="product">
+      <h3>SlitherDesk™</h3>
+      <p>Minimalist Desk Organizer — <strong>$39.99</strong></p>
+    </div>
+
+    <p>Shop: <a href="https://slitherproducts.example.com" target="_blank">slitherproducts.example.com</a></p>
+  </section>
+
+  <footer>
     &copy; 2025 Circuitshade Studios. All rights reserved.
   </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
